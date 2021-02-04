@@ -18,8 +18,10 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 app.get('/', async (req, res) => {
     res.json({ info: 'Node.js, Express, and Postgres API' })
 });
-app.post('/car', addCar);
 
+//Post routes to send data of car
+app.post('/car', addCar);
+//Post routes to send single image of car
 app.post('/car/:id', upload.single('car_image'), addCarImage);
 
 app.put('/car', updateCar);
